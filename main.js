@@ -97,11 +97,11 @@
      transicao so comecava ~1,3s depois.                                      */
   var HERO = [
     { name: 'Hayabusa',       tag: 'Super Sport',   cc: '1.340 cm³', hp: '190 cv', price: 'R$ 124.500',
-      foco: '50% 50%', focoMob: '34% 50%' },
+      foco: '100% 50%', focoMob: '88% 50%' },
     { name: 'V-Strom 1050DE', tag: 'Big Trail',     cc: '1.037 cm³', hp: '107 cv', price: 'R$ 81.650',
-      foco: '62% 50%', focoMob: '66% 50%' },
+      foco: '0% 50%',   focoMob: '56% 50%' },
     { name: 'GSX-S1000GT',    tag: 'Sport Touring', cc: '999 cm³',   hp: '152 cv', price: 'R$ 87.600',
-      foco: '50% 50%', focoMob: '86% 50%' }
+      foco: '82% 50%',  focoMob: '86% 50%' }
   ];
 
   var camadas = $$('.hero__media');

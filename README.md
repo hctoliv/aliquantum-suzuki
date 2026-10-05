@@ -145,15 +145,35 @@ Para entrar um quarto, confirme o decalque antes.
 Todas oficiais da Suzuki Motos do Brasil, baixadas de `suzukimotos.com.br`:
 
 - `assets/hero-*.jpg` — os três fundos do rodízio. Trocam junto com o card do modelo
-  em destaque: uma camada `<img>` fixa por modelo, alternando só a opacidade. Cada
-  slide tem seu próprio enquadramento (`foco` no desktop, `focoMob` no celular) para
-  a moto nunca sair do corte.
+  em destaque: uma camada `<img>` fixa por modelo, alternando só a opacidade.
+
+**O enquadramento não foi no olho.** Mediu-se a faixa que a moto ocupa em cada
+arquivo e calculou-se o `object-position` que a deixa inteira e à direita do texto.
+No desktop (1440px) a moto cai em 632–1423, 522–1222 e 844–1359, com o texto
+terminando em 692 — ou seja, as três ficam livres da coluna de texto.
+
+`object-position` menor empurra a imagem para a **direita** (alinha a borda
+esquerda). É contraintuitivo e já causou confusão aqui: o V-Strom usa `0% 50%`
+justamente para jogar a moto para a direita.
+
+A Hayabusa é foto de estúdio recortada, então no desktop usa `.hero__media--palco`:
+a imagem recebe a largura da própria proporção, encosta na direita e tem a borda
+esquerda dissolvida por um `mask`, sem emenda contra o palco escuro.
 - `assets/hayabusa.jpg` — recorte do banner oficial, com o texto da Suzuki removido
 - `assets/motos/*.jpg` — os 11 modelos, mesmo ângulo e enquadramento, fundo branco
   que o CSS funde com `mix-blend-mode: multiply`
 
 Total de ~2 MB para 15 imagens. Trocar por **fotos da loja real** continua sendo o
 maior salto de qualidade possível — catálogo todo mundo tem.
+
+## O hero no celular
+
+A foto não preenche a altura toda: vira uma **faixa de 52svh no topo**, em formato
+paisagem, e a barra do modelo sobe para logo abaixo dela (`order: -1`).
+
+Por quê: com a foto preenchendo os ~900px de altura do hero, só aparecia metade da
+moto (47%, 53% e 72% nas três). Na faixa, aparecem **100% nas três**, e a barra que
+nomeia a foto cabe na primeira tela (120–402px de 812).
 
 ## O que falta antes de publicar
 
