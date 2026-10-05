@@ -1,18 +1,20 @@
-# Imagens do site
+# Imagens
 
-Os três arquivos abaixo são **slots**: o site funciona sem eles (o layout cai
-para o palco gráfico escuro / placeholder tipográfico), e passa a usá-los assim
-que forem colocados aqui com estes nomes exatos.
+Todas as imagens aqui são **oficiais da Suzuki Motos do Brasil**, baixadas de
+`suzukimotos.com.br` em 05/10/2026 e processadas localmente (recorte e compressão).
 
-| Arquivo          | Onde aparece              | Formato sugerido                                         |
-|------------------|---------------------------|----------------------------------------------------------|
-| `hero.jpg`       | Fundo do hero             | 2400×1350, paisagem, moto à direita, área escura à esquerda para o texto |
-| `hayabusa.jpg`   | Seção "O ícone"           | 1600×1200 (4:3), moto no showroom                        |
-| `og-cover.jpg`   | Compartilhamento (WhatsApp, redes) | 1200×630                                        |
+| Arquivo | Onde aparece | Observação |
+|---|---|---|
+| `hero.jpg` | Fundo do hero | GSX-S1000GT em estrada. Moto à direita; no celular o CSS reenquadra para `86% center` para ela não sair do corte |
+| `hayabusa.jpg` | Seção "O ícone" | Recorte do banner oficial — o texto e o botão da Suzuki foram removidos no corte |
+| `og-cover.jpg` | Compartilhamento | 1200×630, recorte da mesma foto do hero |
+| `motos/*.jpg` | Cards da linha 2026 | Os 11 modelos, estúdio, mesmo ângulo, fundo branco |
 
-Para as fotos dos cards de modelo, basta colocar um `<img>` dentro de
-`.model__shot` (o CSS já trata contain + multiply sobre fundo claro) —
-recomendado PNG com fundo branco ou recortado, 1200×750.
+Os cards usam `mix-blend-mode: multiply`, então **o fundo branco some** sobre o
+gradiente claro. Se trocar por outra foto, mantenha fundo branco ou PNG recortado.
 
-Fotos próprias da loja rendem mais que as de catálogo: o diferencial do site é
-mostrar a unidade real, o showroom e a equipe.
+## Trocar pelas fotos da loja
+
+É o maior salto de qualidade disponível: foto de catálogo todo concorrente tem,
+foto do showroom real e da equipe só a Aliquantum tem. Basta substituir os arquivos
+mantendo os mesmos nomes — nada no código precisa mudar.

@@ -34,6 +34,29 @@ A diferença entre os dois: a Avantgarde vende desejo, a Porsche vende atendimen
 Concessionária autorizada vive das duas coisas, então o site alterna entre o registro
 editorial (Hayabusa, linha 2026) e o operacional (oficina, agendamento, rota).
 
+## Identidade de marca
+
+Extraída do perfil **@aliquantumsuzuki**, não inventada. As cores foram amostradas
+pixel a pixel do logo do perfil:
+
+| Token | Valor | Origem |
+|---|---|---|
+| `--az` | `#3A4AC2` | azul royal do badge circular (amostrado: `#4050B8`) |
+| `--lima` | `#C8D935` | amarelo-limão do anel e dos títulos de impacto |
+| `--ink` | `#070A16` | preto puxado para o azul, como o showroom das fotos deles |
+
+- **Logo:** badge circular azul com anel limão, reconstruído em SVG (header, rodapé e favicon).
+- **Tipografia:** Barlow Condensed 700/800, caixa alta, com a palavra de impacto em
+  **itálico limão** — é o recurso que se repete em todas as artes do Instagram
+  ("DIA DO **VENDEDOR**", "A ESCOLHA **CERTA**").
+- **Vermelho fica de fora.** Ele aparece no Instagram só quando o assunto é Haojue;
+  preto/âmbar, só quando é Zontes. A casa é azul e limão.
+
+O que **não** veio do Instagram foi o layout. As artes de feed são promocionais
+(contorno, brilho, selo de preço); aqui a mesma paleta é aplicada com o respiro
+editorial das referências Avantgarde e Porsche. Identidade é cor, logo e atitude
+tipográfica — não diagramação de post.
+
 ## Estrutura
 
 1. **Hero** — palco escuro com card de modelo em destaque que rotaciona (Hayabusa → V-Strom 1050 → GSX-8R)
@@ -70,28 +93,47 @@ Tudo conferido em 05/10/2026, no site da Aliquantum e no site oficial da Suzuki 
 - **CNPJ** 23.511.794/0001-53 · **Instagram** @aliquantumsuzuki
 - **Preços** os 11 modelos usam o preço público sugerido da Suzuki, batendo com o
   que está no estoque da própria Aliquantum. Hayabusa R$ 124.500 → GSX-8S R$ 51.500.
+- **Do Instagram:** desde 2008 (18 anos), +150 motos em estoque, quatro marcas
+  representadas (Suzuki, Haojue, Zontes, Kymco).
+
+> **Atenção — dois WhatsApps diferentes.** O site oficial publica
+> **(11) 99269-8532**; a bio do Instagram publica **(11) 97853-6591**. O site usa o
+> primeiro. Confirme qual é o número que a equipe de vendas atende antes de publicar,
+> porque é por ele que todo o funil passa.
 
 > Preço de moto muda. Antes de publicar, vale uma passada de olho na seção
 > `#modelos` do `index.html` — os valores estão no HTML, um por card.
 
+## Imagens
+
+Todas oficiais da Suzuki Motos do Brasil, baixadas de `suzukimotos.com.br`:
+
+- `assets/hero.jpg` — GSX-S1000GT em estrada de montanha (moto à direita, espaço
+  para o texto à esquerda; reenquadrada por CSS no celular para a moto não sumir)
+- `assets/hayabusa.jpg` — recorte do banner oficial, com o texto da Suzuki removido
+- `assets/motos/*.jpg` — os 11 modelos, mesmo ângulo e enquadramento, fundo branco
+  que o CSS funde com `mix-blend-mode: multiply`
+
+Total de 1,5 MB para 13 imagens. Trocar por **fotos da loja real** continua sendo o
+maior salto de qualidade possível — catálogo todo mundo tem.
+
 ## O que falta antes de publicar
 
-1. **Fotos.** Veja `assets/README.md`. O site funciona sem elas (cai para o palco
-   gráfico e para placeholders tipográficos), mas é a maior diferença entre
-   "bonito" e "caro". Foto da loja real vale mais que foto de catálogo.
-2. **Domínio.** O `canonical` e o schema apontam para `aliquantumsuzuki.com.br`.
+1. **Confirmar o WhatsApp** (veja o aviso acima).
+2. **Fotos próprias** do showroom, da equipe e do estoque, substituindo as de catálogo.
+3. **Domínio.** O `canonical` e o schema apontam para `aliquantumsuzuki.com.br`.
    Enquanto o site vive só no Pages isso é até conveniente — o canonical para um
    domínio que ainda não existe mantém a versão de demonstração fora do índice do
    Google. Ao publicar no domínio real, troque nos dois lugares (`<link rel="canonical">`
    e o bloco JSON-LD) e aponte o CNAME.
-3. **Checar preços e versões** com o gerente de vendas.
-4. **Analytics**, se for o caso (nada foi incluído — o site não carrega um byte
+4. **Checar preços e versões** com o gerente de vendas.
+5. **Analytics**, se for o caso (nada foi incluído — o site não carrega um byte
    de terceiros além da fonte do Google).
 
 ## Decisões técnicas
 
-- **Zero framework.** ~78 KB de código, uma requisição de fonte, nenhum script externo.
-- **Fontes** Archivo (display) + Inter Tight (texto), carregadas sem bloquear o render.
+- **Zero framework.** ~80 KB de código + 1,5 MB de imagens, uma requisição de fonte, nenhum script externo.
+- **Fontes** Barlow Condensed (títulos) + Inter Tight (texto e números), sem bloquear o render.
 - **Acessibilidade** skip link, foco visível, `aria-pressed` nos filtros, `aria-expanded`
   no menu, contraste AA, formulário com labels reais.
 - **`prefers-reduced-motion`** desliga reveal, contadores, rotação do hero e transições.
@@ -103,8 +145,8 @@ Tudo conferido em 05/10/2026, no site da Aliquantum e no site oficial da Suzuki 
 
 | Token | Valor | Uso |
 |---|---|---|
-| `--ink` | `#0A0B0D` | base escura |
-| `--ink-2` | `#101217` | seções escuras alternadas |
-| `--paper` / `--paper-2` | `#FFFFFF` / `#F2F2F0` | seções claras |
-| `--blue` | `#0046B4` | marca, CTAs |
-| `--blue-300` | `#5FA8FF` | acento sobre escuro |
+| `--ink` | `#070A16` | base escura |
+| `--ink-2` | `#0C1122` | seções escuras alternadas |
+| `--paper` / `--paper-2` | `#FFFFFF` / `#F2F3F0` | seções claras |
+| `--az` | `#3A4AC2` | azul do logo: CTAs, links, faixa |
+| `--lima` | `#C8D935` | acento: kickers, ícones, itálico de impacto |
