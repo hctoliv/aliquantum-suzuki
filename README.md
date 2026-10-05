@@ -44,13 +44,19 @@ pixel a pixel do logo do perfil:
 | `--az` | `#3A4AC2` | azul royal do badge circular (amostrado: `#4050B8`) |
 | `--lima` | `#C8D935` | amarelo-limão do anel e dos títulos de impacto |
 | `--ink` | `#070A16` | preto puxado para o azul, como o showroom das fotos deles |
+| `--verm` | `#DE0039` | vermelho da Suzuki, extraído do SVG oficial da marca |
 
 - **Logo:** badge circular azul com anel limão, reconstruído em SVG (header, rodapé e favicon).
 - **Tipografia:** Barlow Condensed 700/800, caixa alta, com a palavra de impacto em
   **itálico limão** — é o recurso que se repete em todas as artes do Instagram
   ("DIA DO **VENDEDOR**", "A ESCOLHA **CERTA**").
-- **Vermelho fica de fora.** Ele aparece no Instagram só quando o assunto é Haojue;
-  preto/âmbar, só quando é Zontes. A casa é azul e limão.
+- **Vermelho:** é o da própria Suzuki (`#DE0039`, lido do SVG oficial do logotipo),
+  e entra com papel definido — **ação e urgência**, nunca decoração:
+  botão "Falar agora", "Agendar test ride", o envio do formulário, a faixa de troca,
+  o filtro ativo, o selo **0 km** dos cards e o friso lateral do card do hero.
+
+**As três cores têm função, não são enfeite:** azul estrutura, limão sinaliza
+(olho de seção, ícones, a palavra em itálico), vermelho manda agir.
 
 O que **não** veio do Instagram foi o layout. As artes de feed são promocionais
 (contorno, brilho, selo de preço); aqui a mesma paleta é aplicada com o respiro
@@ -59,7 +65,9 @@ tipográfica — não diagramação de post.
 
 ## Estrutura
 
-1. **Hero** — palco escuro com card de modelo em destaque que rotaciona (Hayabusa → V-Strom 1050 → GSX-8R)
+1. **Hero** — foto de estrada com o texto à esquerda e a barra do modelo em destaque
+   logo abaixo dele, rotacionando (Hayabusa → V-Strom 1050 → GSX-8R). A barra é
+   horizontal de propósito: na versão em card vertical ela cobria a moto da foto.
 2. **Ações rápidas** — telefone, WhatsApp, como chegar, agendar revisão, e-mail
 3. **Linha 2026** — 11 configurações com filtro por categoria + tile de CTA
 4. **Hayabusa** — o destaque editorial, com ficha técnica
@@ -148,5 +156,6 @@ maior salto de qualidade possível — catálogo todo mundo tem.
 | `--ink` | `#070A16` | base escura |
 | `--ink-2` | `#0C1122` | seções escuras alternadas |
 | `--paper` / `--paper-2` | `#FFFFFF` / `#F2F3F0` | seções claras |
-| `--az` | `#3A4AC2` | azul do logo: CTAs, links, faixa |
-| `--lima` | `#C8D935` | acento: kickers, ícones, itálico de impacto |
+| `--az` | `#3A4AC2` | azul do logo: estrutura, links, botões secundários |
+| `--lima` | `#C8D935` | sinalização: kickers, ícones, itálico de impacto |
+| `--verm` | `#DE0039` | ação: CTAs principais, selo 0 km, filtro ativo |
