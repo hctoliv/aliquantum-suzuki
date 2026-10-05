@@ -116,17 +116,43 @@ Tudo conferido em 05/10/2026, no site da Aliquantum e no site oficial da Suzuki 
 > Preço de moto muda. Antes de publicar, vale uma passada de olho na seção
 > `#modelos` do `index.html` — os valores estão no HTML, um por card.
 
+## Conferência das fotos — regra da casa
+
+**Nenhuma foto é pareada a um modelo sem que a identificação seja inequívoca.**
+Cada imagem de banner foi ampliada no decalque da carenagem antes de entrar:
+
+| Foto | Como foi confirmada | Modelo |
+|---|---|---|
+| `hero-hayabusa.jpg` | kanji 隼 na carenagem + veio da página `/hayabusa` | Hayabusa |
+| `hero-vstrom-1050de.jpg` | decalque lê **V-STROM 1050DE**; rodas raiadas batem com o card | V-Strom 1050**DE** |
+| `hero-gsx-s1000gt.jpg` | decalque **GT** + malas laterais + carenagem | GSX-S1000GT |
+
+> O 1050DE quase virou erro: a foto estava para ser usada no slide "V-Strom 1050",
+> que é outra moto (roda fundida, R$ 77.600 contra R$ 81.650). O decalque resolveu.
+
+Os 11 cards foram conferidos do mesmo jeito — cada um veio da pasta `cores/` da
+própria página do modelo no site da Suzuki, e os pares que mais se confundem
+(8R carenada × 8S naked; S1000 naked × GT carenada × GX crossover; 1050 × 1050DE)
+foram vistos um a um.
+
+**O rodízio do hero só tem três modelos** porque são os três com foto ambientada
+oficial e identificação inequívoca. GSX-8R e V-Strom 1050 saíram do rodízio por
+falta de foto confirmada — continuam nos cards, com a foto de estúdio deles.
+Para entrar um quarto, confirme o decalque antes.
+
 ## Imagens
 
 Todas oficiais da Suzuki Motos do Brasil, baixadas de `suzukimotos.com.br`:
 
-- `assets/hero.jpg` — GSX-S1000GT em estrada de montanha (moto à direita, espaço
-  para o texto à esquerda; reenquadrada por CSS no celular para a moto não sumir)
+- `assets/hero-*.jpg` — os três fundos do rodízio. Trocam junto com o card do modelo
+  em destaque: uma camada `<img>` fixa por modelo, alternando só a opacidade. Cada
+  slide tem seu próprio enquadramento (`foco` no desktop, `focoMob` no celular) para
+  a moto nunca sair do corte.
 - `assets/hayabusa.jpg` — recorte do banner oficial, com o texto da Suzuki removido
 - `assets/motos/*.jpg` — os 11 modelos, mesmo ângulo e enquadramento, fundo branco
   que o CSS funde com `mix-blend-mode: multiply`
 
-Total de 1,5 MB para 13 imagens. Trocar por **fotos da loja real** continua sendo o
+Total de ~2 MB para 15 imagens. Trocar por **fotos da loja real** continua sendo o
 maior salto de qualidade possível — catálogo todo mundo tem.
 
 ## O que falta antes de publicar

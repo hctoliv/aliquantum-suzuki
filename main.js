@@ -87,51 +87,73 @@
     window.setTimeout(function () { wa.classList.add('is-in'); }, reduced ? 0 : 900);
   }
 
-  /* --- Hero: foto só entra quando carregar ------------------------------ */
-  var heroMedia = $('#heroMedia');
-  if (heroMedia) {
-    if (heroMedia.complete && heroMedia.naturalWidth > 0) {
-      heroMedia.classList.add('is-ready');
-    } else {
-      heroMedia.addEventListener('load', function () {
-        if (heroMedia.naturalWidth > 0) heroMedia.classList.add('is-ready');
-      });
-    }
-  }
+  /* --- Hero: foto de fundo acompanha o modelo em destaque ---------------
+     Cada foto foi conferida pelo decalque da carenagem antes de ser pareada:
+     so entram modelos cuja identificacao e inequivoca. Specs e precos sao os
+     mesmos dos cards da secao "Linha 2026" — se um mudar, mude os dois.
 
-  /* --- Hero: rotação do card em destaque -------------------------------- */
+     Uma camada <img> fixa por modelo, trocando so a opacidade. Reaproveitar
+     duas camadas e trocar o src forcava um decode novo a cada clique, e a
+     transicao so comecava ~1,3s depois.                                      */
   var HERO = [
-    { name: 'Hayabusa',      tag: 'Super Sport', cc: '1.340 cm³', hp: '190 cv', price: 'R$ 124.500' },
-    { name: 'V-Strom 1050',  tag: 'Big Trail',   cc: '1.037 cm³', hp: '107 cv', price: 'R$ 77.600'  },
-    { name: 'GSX-8R',        tag: 'Esportiva',   cc: '776 cm³',   hp: '83 cv',  price: 'R$ 56.900'  }
+    { name: 'Hayabusa',       tag: 'Super Sport',   cc: '1.340 cm³', hp: '190 cv', price: 'R$ 124.500',
+      foco: '50% 50%', focoMob: '34% 50%' },
+    { name: 'V-Strom 1050DE', tag: 'Big Trail',     cc: '1.037 cm³', hp: '107 cv', price: 'R$ 81.650',
+      foco: '62% 50%', focoMob: '66% 50%' },
+    { name: 'GSX-S1000GT',    tag: 'Sport Touring', cc: '999 cm³',   hp: '152 cv', price: 'R$ 87.600',
+      foco: '50% 50%', focoMob: '86% 50%' }
   ];
+
+  var camadas = $$('.hero__media');
   var dots = $$('.hero__dots button');
   var heroTimer = null;
   var heroIdx = 0;
+
+  var telaEstreita = window.matchMedia('(max-width: 860px)');
+  function focoDe(m) { return telaEstreita.matches ? m.focoMob : m.foco; }
 
   function paintHero(i) {
     var m = HERO[i];
     if (!m) return;
     heroIdx = i;
+
     ['name', 'tag', 'cc', 'hp', 'price'].forEach(function (k) {
       var el = $('[data-hc="' + k + '"]');
       if (el) el.textContent = m[k];
     });
+
+    camadas.forEach(function (c, n) {
+      if (n === i) {
+        c.style.setProperty('--foco', focoDe(m));
+        c.classList.add('is-ativa');
+      } else {
+        c.classList.remove('is-ativa');
+      }
+    });
+
     dots.forEach(function (d, n) { d.setAttribute('aria-current', String(n === i)); });
   }
+
+  var onResize = function () {
+    var c = camadas[heroIdx];
+    if (c) c.style.setProperty('--foco', focoDe(HERO[heroIdx]));
+  };
+  if (telaEstreita.addEventListener) telaEstreita.addEventListener('change', onResize);
+  else if (telaEstreita.addListener) telaEstreita.addListener(onResize);
+  onResize();
 
   function cycleHero() {
     paintHero((heroIdx + 1) % HERO.length);
   }
 
-  if (dots.length) {
+  if (dots.length && camadas.length) {
     dots.forEach(function (d, i) {
       d.addEventListener('click', function () {
         paintHero(i);
         if (heroTimer) { window.clearInterval(heroTimer); heroTimer = null; }
       });
     });
-    if (!reduced) heroTimer = window.setInterval(cycleHero, 6000);
+    if (!reduced) heroTimer = window.setInterval(cycleHero, 7000);
   }
 
   /* --- Filtro de modelos ------------------------------------------------ */
