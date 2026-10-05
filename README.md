@@ -7,6 +7,10 @@ HTML/CSS/JS estáticos, sem build e sem dependências: `index.html`, `styles.css
 Publicado pelo GitHub Pages a partir da branch `main` (raiz). Todo push na `main`
 republica o site em cerca de um minuto.
 
+> Ao mexer em `styles.css` ou `main.js`, **suba o `?v=` nos dois links do
+> `index.html`**. O Pages serve os arquivos com `max-age=600`, então sem isso quem
+> já visitou continua vendo a versão antiga por até dez minutos.
+
 ```bash
 python3 -m http.server 4178
 ```
