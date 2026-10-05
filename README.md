@@ -3,6 +3,10 @@
 Site da concessionária Suzuki da Aliquantum (Vila Graciosa, São Paulo).
 HTML/CSS/JS estáticos, sem build e sem dependências: `index.html`, `styles.css`, `main.js`.
 
+**No ar:** <https://hctoliv.github.io/aliquantum-suzuki/>
+Publicado pelo GitHub Pages a partir da branch `main` (raiz). Todo push na `main`
+republica o site em cerca de um minuto.
+
 ```bash
 python3 -m http.server 4178
 ```
@@ -75,8 +79,11 @@ Tudo conferido em 05/10/2026, no site da Aliquantum e no site oficial da Suzuki 
 1. **Fotos.** Veja `assets/README.md`. O site funciona sem elas (cai para o palco
    gráfico e para placeholders tipográficos), mas é a maior diferença entre
    "bonito" e "caro". Foto da loja real vale mais que foto de catálogo.
-2. **Domínio.** O `canonical` e o schema estão apontando para
-   `aliquantumsuzuki.com.br` — ajuste se o endereço for outro.
+2. **Domínio.** O `canonical` e o schema apontam para `aliquantumsuzuki.com.br`.
+   Enquanto o site vive só no Pages isso é até conveniente — o canonical para um
+   domínio que ainda não existe mantém a versão de demonstração fora do índice do
+   Google. Ao publicar no domínio real, troque nos dois lugares (`<link rel="canonical">`
+   e o bloco JSON-LD) e aponte o CNAME.
 3. **Checar preços e versões** com o gerente de vendas.
 4. **Analytics**, se for o caso (nada foi incluído — o site não carrega um byte
    de terceiros além da fonte do Google).
