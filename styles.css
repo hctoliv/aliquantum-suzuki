@@ -1192,23 +1192,24 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
      A barra do modelo sobe para logo abaixo da faixa — ela nomeia a foto. */
   .hero {
     display: block;
-    padding-block: calc(52svh + 22px) 48px;
+    padding-block: calc(42svh + 20px) 44px;
   }
   .hero__media {
     inset: 0 0 auto;
-    height: 52svh;
-    max-height: 460px;
+    height: 42svh;
+    max-height: 400px;
   }
   .hero__scrim {
     background: linear-gradient(180deg,
-      rgba(5,7,15,.46) 0%,
-      rgba(5,7,15,.08) 24%,
-      rgba(5,7,15,.58) 44%,
-      var(--ink) 53%,
+      rgba(5,7,15,.50) 0,
+      rgba(5,7,15,.06) 13svh,
+      rgba(5,7,15,.06) 33svh,
+      rgba(5,7,15,.80) 40svh,
+      var(--ink) 42svh,
       var(--ink) 100%);
   }
   .hero__grid { grid-template-columns: minmax(0, 1fr); }
-  .hero__card { order: -1; margin-bottom: 30px; grid-template-columns: 1fr; gap: 16px; }
+  .hero__card { grid-template-columns: 1fr; gap: 16px; }
   .hero__specs { padding-left: 0; border-left: 0; border-top: 1px solid var(--d-line); padding-top: 16px; }
   .hero__price { text-align: left; }
   .quickbar ul { grid-template-columns: repeat(2, 1fr); }
@@ -1216,8 +1217,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .quickbar li:nth-child(odd) { border-left: 0; }
   .quickbar li:nth-child(2n) { border-left: 1px solid var(--d-line); }
   .quickbar a { padding: 20px 18px; font-size: 11px; }
-  .hero { padding-block: 120px 108px; }
-  
+}
+
 @media (max-width: 620px) {
   .hdr__cta .btn { display: none; }
   .hdr__in { gap: 12px; }

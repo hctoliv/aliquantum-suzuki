@@ -168,12 +168,18 @@ maior salto de qualidade possível — catálogo todo mundo tem.
 
 ## O hero no celular
 
-A foto não preenche a altura toda: vira uma **faixa de 52svh no topo**, em formato
-paisagem, e a barra do modelo sobe para logo abaixo dela (`order: -1`).
+A foto não preenche a altura toda: vira uma **faixa de 42svh no topo**, em formato
+paisagem. A ordem é **foto → copy → barra do modelo**.
 
 Por quê: com a foto preenchendo os ~900px de altura do hero, só aparecia metade da
-moto (47%, 53% e 72% nas três). Na faixa, aparecem **100% nas três**, e a barra que
-nomeia a foto cabe na primeira tela (120–402px de 812).
+moto (47%, 53% e 72% nas três). Na faixa, aparecem **100% nas três**.
+
+Medido em 375×812: foto `0–341`, copy `361–729`, barra `783–1065`. O título e os
+botões cabem na primeira tela e a barra começa a aparecer no fim dela.
+
+> As paradas do gradiente do scrim estão em `svh`, não em `%`. Em `%` elas seriam
+> relativas à altura do hero (1111px), não à da faixa (341px) — foi assim que a
+> parte de baixo da moto acabou sob 50% de escuro numa das versões.
 
 ## O que falta antes de publicar
 
